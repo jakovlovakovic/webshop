@@ -1,0 +1,280 @@
+/* na sve elemente */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* grid container */
+.grid-parent {
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    background-color: rgb(157, 229, 229);
+}
+
+/* div s logom */
+.div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: rgb(157, 229, 229);
+    min-height: 15vh;
+    border-bottom: 1vh solid rgb(0, 0, 0);
+    /* napravi div sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    /* pozadinska slika */
+    background-image: url('../images/logo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* div s kosaricom i povecalom */
+.div2 {
+    grid-area: 1 / 5 / 2 / 6;
+    background-color: rgb(60, 167, 255);
+    min-height: 15vh;
+    border-bottom: 1vh solid rgb(0, 0, 0);
+    /* napravi div sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* div s trenutnom kategorijom */
+.div3 {
+    grid-area: 1 / 2 / 2 / 5;
+    background-color: rgb(112, 244, 233);
+    min-height: 15vh;
+    border-bottom: 1vh solid rgb(0, 0, 0);
+    /* napravi div sticky */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    /* centrira text vertikalno unutar diva */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 4vh;
+}
+
+/* side lista */
+.div4 {
+    grid-area: 2 / 1 / 6 / 2;
+    background-color: rgb(60, 167, 255);
+    /* ukljuci flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1vh 0;
+}
+
+/* div s kontakt, newsletter i pretplati se listom */
+.div5 {
+    grid-area: 6 / 1 / 8 / 2;
+    background-color: rgb(157, 229, 229);
+    /* ukljuci flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1vh 0;
+}
+
+/* div s lijepom slikom */
+.div6 {
+    grid-area: 2 / 2 / 5 / 6;
+    background-image: url('../images/mainimage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* relative treba za kasnije */
+    position: relative;
+}
+
+/* div s proizovdima trenutne kategorije */
+.div7 {
+    grid-area: 5 / 2 / 8 / 6;
+    background-color: rgb(112, 244, 233);
+    /* ukljuci flexbox */
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+}
+
+/* namjestavanje slika za div2 */
+.div2 .div2-image {
+    width: 50%;
+    height: auto;
+}
+
+.div2 .cart-icon-container {
+    position: relative;
+    width: 50%;
+    height: auto;
+}
+
+.div2 .cart-icon-container .div2-image {
+    width: 100%;
+    height: 100%
+}
+
+.counter {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(255, 83, 83);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+}
+
+/* dodaj text u div6 */
+.div6::after {
+    content: "PLANINARKO - planinarska oprema";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+}
+
+/* image container za div7 */
+.image-container {
+    position: relative;
+    width: 30vh;
+    height: 30vh;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.image-container p {
+    font-size: 2.5vh;
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+.image-container .cart-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    display: none;
+}
+
+/* prikazi cart kada predjes preko itema */
+.image-container:hover .cart-image {
+    display: block;
+}
+
+.div7 .image-container:hover img:not(.cart-image) {
+    opacity: 0.7;
+}
+
+.div7 .image-container .counter-div7 {
+    position: absolute;
+    bottom: 20%;
+    right: 0;
+    background-color: rgb(255, 83, 83);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+}
+
+/* liste */
+.fancy-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.fancy-list li {
+    margin-bottom: 1px;
+    text-align: center;
+    font-size: 4vh;
+}
+
+.fancy-list li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.fancy-list li:hover {
+    background-color: rgb(25, 104, 168);
+}
+
+.fancy-list li a:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+/* RESPONZIVAN DIO - promijena grid layouta */
+@media only screen and (max-width: 1024px) {
+    .grid-parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(11, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .div1 {
+        grid-area: 1 / 1 / 2 / 2;
+        border: none;
+        position: static;
+    }
+
+    .div2 {
+        grid-area: 2 / 4 / 3 / 6;
+    }
+
+    .div3 {
+        grid-area: 2 / 1 / 3 / 4;
+    }
+
+    .div4 {
+        grid-area: 6 / 1 / 10 / 2;
+    }
+
+    .div5 {
+        grid-area: 10 / 1 / 12 / 2;
+    }
+
+    .div6 {
+        grid-area: 3 / 1 / 6 / 6;
+    }
+
+    .div7 {
+        grid-area: 6 / 2 / 12 / 6;
+    }
+}

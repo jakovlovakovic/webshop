@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles/indexstylesheet.css">
+  <title>Planinarko - hiking webshop</title>
+  <link rel="icon" type="image/x-icon" href="/images/logo.ico">
+</head>
+
+<body class="grid-parent">
+  <div class="div1"></div>
+  <div class="div2">
+    <div class="cart-icon-container">
+      <a href="/cart/getAll">
+        <img class="div2-image" src="/images/cart.jpg" alt="Image 1">
+      </a>
+      <div class="counter"><%= totalCount || 0 %></div>
+    </div>
+    <img class="div2-image" src="/images/search.jpg" alt="Image 2">
+  </div>
+  <div class="div3">
+    <%= category.name %> (trenutno otvorena)
+  </div>
+  <div class="div4">
+    <ul class="fancy-list">
+      <% categories.forEach(category=> { %>
+        <li><a href="/home/getProducts/<%= category.name %>">
+            <%= category.name %>
+          </a></li>
+        <% }); %>
+    </ul>
+  </div>
+  <div class="div5">
+    <ul class="fancy-list">
+      <li>Kontakt</li>
+      <li>Newletter</li>
+      <li>Pretplati se</li>
+    </ul>
+  </div>
+  <div class="div6"></div>
+  <div class="div7">
+    <% category.products.forEach(product=> { %>
+      <div class="image-container">
+        <img src="/images/<%= category.name %>/<%= product.image %>" alt="<%= product.name %>" class="image">
+        <img class="cart-image" src="/images/cart.jpg" alt="Cart image">
+        <div class="counter-div7" id="counter-<%= product.name %>">
+          <%= cart[product.name] || 0 %>
+        </div>
+        <p>
+          <%= product.name %> / <%= category.name %>
+        </p>
+      </div>
+      <% }); %>
+  </div>
+  <script src="/scripts/client_home.js"></script>
+</body>
+
+</html>

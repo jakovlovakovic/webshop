@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/styles/cartstylesheet.css">
+    <title>Planinarko - hiking webshop</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.ico">
+</head>
+
+<body class="grid-parent">
+    <div class="div1"></div>
+    <div class="div2">
+        <img class="div2-image" src="/images/cart.jpg" alt="Image 1">
+        <img class="div2-image" src="/images/search.jpg" alt="Image 2">
+    </div>
+    <div class="div3">Ovo je Vaša košarica!</div>
+    <div class="div4">
+        <div class="text">Naziv proizvoda</div>
+    </div>
+    <div class="div5">
+        <div class="text">Količina</div>
+    </div>
+    <div class="div6">
+        <% for(let productId in cart) { %>
+            <div class="item">
+                <div class="name">
+                    <%= productId %>
+                </div>
+                <div class="controls">
+                    <button id="delete-<%= productId %>" class="delete-button">-</button>
+                    <span id="quantity-<%= productId %>">
+                        <%= cart[productId] %>
+                    </span>
+                    <button id="add-<%= productId %>" class="add-button">+</button>
+                </div>
+            </div>
+            <% } %>
+    </div>
+    <div class="div7">
+        <div class="kosarica">KOŠARICA</div>
+        <div class="upper-border"></div>
+    </div>
+    <script src="/scripts/client_cart.js"></script>
+</body>
+
+</html>
